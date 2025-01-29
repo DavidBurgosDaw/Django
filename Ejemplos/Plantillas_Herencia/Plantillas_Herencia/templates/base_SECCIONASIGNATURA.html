@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {%block seccion %}
+<div class="card-header">
+    {% block asignatura %}Aquí aparecerá el nombre de la asignatura{% endblock %}
+</div>
+<div class="card-body">
+    <blockquote class="blockquote mb-0">
+        <p>Número de horas: {% block horas %} horas semanales {%endblock%}</p>
+        <p>Aula: {% block aula %} aula dónde se imparte {%endblock%}</p>
+        <div class="text-muted">Profesor: {%block profesor%} nombre del profesor {%endblock%} </div>
+    </blockquote>
+</div>
+</div>
+{%endblock%}

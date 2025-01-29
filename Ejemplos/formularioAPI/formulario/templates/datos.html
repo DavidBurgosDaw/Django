@@ -1,0 +1,9 @@
+{%extends 'base.html'%} {%block titulo%}Registramos tus datos{%endblock%} {%block subtitulo%}Gracias por confiar en nosotros{%endblock%} {%block contenido%}
+<p>Nombre: {{nombre}}</p>
+<p>Email: {{email}}</p>
+<p>Tu mensaje: {{mensaje}}</p>
+<p>Fecha de Nacimiento:{{fecha}}</p>
+<p>Sexo:{{sexo}}</p>
+<p>Autorización: {% if autorizacion %} Doy {%else%} No doy {%endif%} mi consentimiento
+</p>
+{%endblock%}

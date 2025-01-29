@@ -1,0 +1,15 @@
+{%extends 'base.html' %} {%block titulo %} Deja tus datos {%endblock%} {%block subtitulo%}Nos pondremos en contacto contigo{%endblock%} {%block contenido %}
+<form action="" method="POST">
+    {% csrf_token %} {%for field in form%}
+    <div class="form-group">
+        {%if field.name != 'mensaje'%}
+        <label for="{{field.name}}">{{field.label}}</label> {%endif%} {{field}}
+    </div>
+    {%endfor%}
+    <div class="form-group"></div>
+    <center>
+        <input type="submit" class="btn btn-success btn-lg" value="Aceptar">
+    </center>
+    </div>
+</form>
+{%endblock%}
