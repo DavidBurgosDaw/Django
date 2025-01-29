@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Practica9Ej1.views import edadFutura
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index.html/<int:edadActual>/<int:anio_futuro>/', edadFutura, name='edad_futura'),
 ]
