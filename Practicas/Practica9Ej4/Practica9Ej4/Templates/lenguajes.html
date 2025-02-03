@@ -1,0 +1,10 @@
+{% extends "index.html" %} {% block lenguajes %}
+    {% for item in plantillas %}
+    <p><strong>Nombre:</strong> {{ item.nombre }}</p>
+    <p><strong>Año:</strong> {{ item.año }}</p>
+    <p><strong>Descripción:</strong> {{ item.descripcion }}</p>
+    <hr>
+    {% empty %}
+    <p>No hay lenguajes disponibles.</p>
+    {% endfor %}
+{% endblock %}
