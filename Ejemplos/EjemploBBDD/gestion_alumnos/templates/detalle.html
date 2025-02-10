@@ -1,0 +1,27 @@
+{%extends 'base.html' %} {%block titulo %} Información de Alumno{%endblock%} {%block subtitulo%}Detalle del alumno{%endblock%} {%block contenido %}
+<div class="jumbotron">
+    <table class="table">
+
+
+
+        <tr>
+            <th>NÚMERO</th>
+
+            <td>{{a.numero}}</td>
+        </tr>
+        <tr>
+            <th>NOMBRE</th>
+            <td>{{a.nombre}}</td>
+        </tr>
+        <tr>
+            <th>DNI</th>
+            <TD>{{a.dni}}</TD>
+        </tr>
+        <tr>
+            <th>NOTA</th>
+            <td>{{a.nota}}</td>
+
+        </tr>
+
+</div>
+{%endblock%}

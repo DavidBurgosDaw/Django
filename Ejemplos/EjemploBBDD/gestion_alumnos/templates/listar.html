@@ -1,0 +1,21 @@
+{%extends 'base.html' %} {%block titulo %} Gestión de Alumnos{%endblock%} {%block subtitulo%}Listado de alumnos{%endblock%} {%block contenido %}
+<div class="jumbotron">
+    <table class="table">
+        <th>NUMERO</th>
+        <th>NOMBRE</th>
+        <th>NOTA</th>
+        {% for a in lista%}
+        <tr>
+
+
+            <td>{{a.numero}}</td>
+            <td>{{a.nombre}}</td>
+            <td>{{a.nota}}</td>
+
+            <td><a class="nav-link" href="{% url 'detalle'  numero=a.numero %}">Detalle</a></td>
+            </form>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{% endblock %}
