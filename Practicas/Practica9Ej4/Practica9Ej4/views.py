@@ -10,4 +10,4 @@ def index(request):
 
           
   
-    return render(request,"index.html",  {"plantillas" : x})
+    return render(request,"lenguajes.html",  {"plantillas" : x})

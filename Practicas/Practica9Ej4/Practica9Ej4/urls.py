@@ -19,7 +19,7 @@ from django.urls import path
 from Practica9Ej4.views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # Ruta para el admin
-    path('', index, name='Index'),    # Ruta para la página principal
-    path('Index/Lenguajes', index, name='Lenguajes'),  # Ruta adicional para /Index/Lenguajes
+    path('admin/', admin.site.urls),       # Ruta para el admin
+    path('', index, name='Index'),         # Ruta para la página principal
 ]
+
