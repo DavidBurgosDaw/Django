@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+
+{% block asignaturas %}
+    {% for item in asignaturas %}
+        <div class="asignatura">
+            <p><strong>Nombre:</strong> {{ item.nombre }}</p>
+            <p><strong>Profesor:</strong> {{ item.profesor }}</p>
+            <p><strong>Número:</strong> {{ item.numero }}</p>    
+            <p><strong>Horas Semanales:</strong> {{ item.hSemanales }}</p>    
+            <img src="{% static item.imagen %}" alt="Imagen de {{ item.nombre }}">
+        </div>
+    {% empty %}
+        <p class="no-asignaturas">No hay asignaturas</p>
+    {% endfor %}
+{% endblock %}

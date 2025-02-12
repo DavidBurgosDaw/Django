@@ -1,0 +1,17 @@
+
+
+{% block lenguajes %}
+    {% if plantillas%}
+        {% for item in plantillas %}
+            <p><strong>Nombre:</strong> {{ item.nombre }}</p>
+            <p><strong>Año:</strong> {{ item.año }}</p>
+            <p><strong>Descripción:</strong> {{ item.descripcion }}</p>
+            <hr>
+        {% empty %}
+            <p>Espabila y ponte a estudiar ya</p>
+        {% endfor %}
+    {% elif plantillas|length == 1 %}
+        <p>Estas empezando</p>
+    {%endif%}
+{% endblock %}
+    
