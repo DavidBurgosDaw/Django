@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Usuario</title>
+</head>
+<body>
+    <h1>Formulario de Información del Usuario</h1>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- Campo de Nombre -->
+        <label for="id_nombre">Nombre:</label>
+        {{ nombre }}
+        <br>
+        
+        <!-- Campo de Apellidos -->
+        <label for="id_apellidos">Apellidos:</label>
+        {{ apellidos }}
+        <br>
+        
+        <!-- Campo de Edad -->
+        <label for="id_edad">Edad:</label>
+        {{ edad }}
+        <br>
+        
+        <!-- Campo de Sexo (Checkbox) -->
+        <label for="id_sexo">Sexo:</label>
+        {{ sexo }}
+        <br>
+        
+        <!-- Campo de Temas -->
+        <label for="id_temas">Temas:</label>
+        {{ temas }}
+        <br>
+        
+        <!-- Campo de Aficiones (Checkbox) -->
+        <label for="id_aficiones">Aficiones:</label>
+        {{ aficiones }}
+        <br>
+        
+        <!-- Botón de Enviar -->
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

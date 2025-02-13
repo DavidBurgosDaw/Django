@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Usuario</title>
+</head>
+<body>
+    <h2>Información Recibida</h2>
+    {% if aficiones|length == 0 %}
+    <p> {{nombre}}, eres un soso </p>
+    {% elif aficiones|length == 1 %}
+    <p> {{nombre}} deberias buscar mas aficiones aparte de {{aficiones}} </p>
+    {% elif aficiones|length == 5 %}
+    <p>{{nombre}}, creo que tienes demasiadas aficiones</p>
+    {% else %}
+    <p>Nombre: {{nombre}} </p>
+    {% endif %}
+
+    {% if aficiones|length > 0 %}
+    <p>Lista de Aficiones</p>
+    <ul>
+    {% for a in aficiones  %}
+        <li> {{a}} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+    <a href="{% url 'infoUsuario' %}">Volver</a>
+</body>
+</html>
