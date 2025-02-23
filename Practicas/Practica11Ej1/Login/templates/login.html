@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+{% csrf_token %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form }} <!--Importo aqui el Formulario-->
+    <button type="submit" class="btn btn-primary w-100">Sign in</button>
+</form>
+
+{% if mensaje %}
+<h3>{{mensaje}}</h3>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Identificador</th>
+        <th>Nombre</th>
+        <th>Jugadores</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if equipo %}
+        <tr>
+          <td>{{ equipo.id }}</td>
+          <td>{{ equipo.identificador }}</td>
+          <td>{{ equipo.nombre }}</td>
+          <td>{{ equipo.num_jugadores }}</td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="3">Error, no se pueden cargar los datos del equipo</td>
+        </tr>
+        {% endif %}
+
+    </tbody>
+  </table>
+  <a href="{% url 'Equipos' %}"><button>Volver a la lista</button></a>
+
+{% endblock %}
