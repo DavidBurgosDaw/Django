@@ -1,0 +1,15 @@
+{% extends "gestion_clientes/base.html" %}
+{% block content %}
+<div class="card p-4 shadow-lg">
+    <h2 class="text-center">Clientes</h2>
+    <ul class="list-group">
+        {% for cliente in lista_clientes %}
+            <li class="list-group-item">
+                {{ cliente.nombre }} - {{ cliente.email }} - {{ cliente.ciudad }}
+            </li>
+        {% empty %}
+            <p class="text-center">No hay clientes registrados.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

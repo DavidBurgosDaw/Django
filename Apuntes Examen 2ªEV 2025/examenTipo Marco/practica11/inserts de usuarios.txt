@@ -1,0 +1,24 @@
+EN SQLLITE:
+INSERT INTO perfilusuario_usuario (nickname, password, email, telefono, fecha_registro, ultimo_acceso) 
+VALUES ('admin', '1234', 'admin@email.com', '123456789', datetime('now'), datetime('now'));
+
+
+
+📌 3. Insert Seguro de Usuario (Shell de Django)
+Si insertas manualmente en la base de datos, debes encriptar la contraseña antes de guardarla.
+
+🔹 Ejecuta en el shell de Django:
+python manage.py shell
+🔹 Luego escribe:
+from perfilusuario.models import Usuario
+from django.contrib.auth.hashers import make_password
+from django.utils.timezone import now
+
+Usuario.objects.create(
+    nickname='admin',
+    password=make_password('1234'),  # Se encripta antes de guardar
+    email='admin@email.com',
+    telefono='123456789',
+    fecha_registro=now(),
+    ultimo_acceso=now()
+)

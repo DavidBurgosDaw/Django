@@ -1,0 +1,20 @@
+<!-- lista_equipos.html -->
+{% extends "liga/base.html" %}
+
+{% block content %}
+    <h2>Lista de Equipos</h2>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Identificador</th>
+            <th>Puntos</th>
+        </tr>
+        {% for equipo in equipos %}
+            <tr>
+                <td>{{ equipo.nombre_completo }}</td>
+                <td>{{ equipo.identificador }}</td>
+                <td>{{ equipo.puntos }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,10 @@
+-- Insertar usuarios
+INSERT INTO Usuario (nickname, password, perfil) VALUES 
+('admin', 'admin123', 'administrador'),
+('usuario1', 'user123', 'normal');
+
+-- Insertar clientes
+INSERT INTO Cliente (nombre, ciudad, telefono, email) VALUES 
+('Juan Pérez', 'Madrid', '612345678', 'juan.perez@example.com'),
+('María García', 'Barcelona', '623456789', 'maria.garcia@example.com'),
+('Carlos López', 'Valencia', '634567890', 'carlos.lopez@example.com');

@@ -1,0 +1,17 @@
+
+    {% extends "gestion_clientes/base.html" %}
+    {% block content %}
+    <div class="card p-4 shadow-lg">
+        <h2 class="text-center">Iniciar Sesión</h2>
+
+        {% if mensaje %}
+            <div class="alert alert-danger">{{ mensaje }}</div>
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        </form>
+    </div>
+    {% endblock %}

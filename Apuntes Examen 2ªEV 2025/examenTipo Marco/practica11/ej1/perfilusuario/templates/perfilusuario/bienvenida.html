@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow-lg">
+        <h2 class="text-center">Bienvenido, {{ usuario.nickname }}!</h2>
+        <p><strong>Email:</strong> {{ usuario.email }}</p>
+        <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+        <p><strong>Fecha de Registro:</strong> {{ usuario.fecha_registro }}</p>
+        <p><strong>Último Acceso:</strong> {{ usuario.ultimo_acceso }}</p>
+        
+        <a href="{% url 'home' %}" class="btn btn-secondary w-100 mt-3">Cerrar sesión</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!-- lista_partidos.html -->
+{% extends "liga/base.html" %}
+
+{% block content %}
+    <h2>Lista de Partidos</h2>
+    <table border="1">
+        <tr>
+            <th>Equipo Casa</th>
+            <th>Goles Casa</th>
+            <th>Equipo Visita</th>
+            <th>Goles Visita</th>
+        </tr>
+        {% for partido in partidos %}
+            <tr>
+                <td>{{ partido.equipo_casa.nombre_completo }}</td>
+                <td>{{ partido.goles_casa }}</td>
+                <td>{{ partido.equipo_visita.nombre_completo }}</td>
+                <td>{{ partido.goles_visita }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

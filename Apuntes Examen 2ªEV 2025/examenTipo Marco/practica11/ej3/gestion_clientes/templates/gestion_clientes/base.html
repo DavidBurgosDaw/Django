@@ -1,0 +1,17 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Clientes</title>
+</head>
+<body>
+    <h1>Bienvenido a la mejor gestion que se peude hacer</h1>
+    <nav>
+        <a href="{% url 'login' %}">Login</a> |
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

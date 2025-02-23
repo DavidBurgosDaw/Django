@@ -1,0 +1,18 @@
+{% extends "gestion_inc/base.html" %}
+
+{% block content %}
+<div class="card p-4 shadow-lg">
+    <h2 class="text-center">Detalles de la Incidencia #{{ incidencia.numero }}</h2>
+    <p><strong>Fecha de Creación:</strong> {{ incidencia.fecha }}</p>
+    <p><strong>Email del Profesor:</strong> {{ incidencia.profesor.email }}</p>
+    <p><strong>Ordenador:</strong> {{ incidencia.numero_ordenador }}</p>
+    <p><strong>Descripción:</strong> {{ incidencia.descripcion }}</p>
+    <p><strong>Resuelta:</strong> 
+        {% if incidencia.resuelta %}
+            <span class="badge badge-success">Sí</span>
+        {% else %}
+            <span class="badge badge-danger">No</span>
+        {% endif %}
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+-- Insertar equipos en la tabla Equipo
+INSERT INTO liga_equipo (nombre_completo, identificador, puntos) VALUES
+('Escuela de fútbol Club Adarve', 'ESCADARV', 0),
+('Club Atlético Madrid', 'ATM', 0),
+('Real Madrid CF', 'RMCF', 0),
+('FC Barcelona', 'FCB', 0),
+('Real Betis Balonpié', 'RBB', 0);
+
+-- Insertar un partido en la tabla Partido
+INSERT INTO liga_partido (equipo_casa_id, equipo_visita_id, goles_casa, goles_visita) VALUES
+(1, 2, 3, 2);  -- Partido entre Escuela de fútbol Club Adarve (ID 1) vs Club Atlético Madrid (ID 2)
+

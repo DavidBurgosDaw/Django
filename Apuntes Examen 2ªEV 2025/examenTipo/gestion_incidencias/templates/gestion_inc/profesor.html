@@ -1,0 +1,27 @@
+
+{% extends "gestion_inc/base.html" %}
+{% load static %}
+{% block content %}
+<div class="card p-4 shadow-lg">
+    <div class="salir-container">
+        <a href="{% url 'login' %}">
+            <img src="{% static 'imagenes/exit.png' %}" alt="Salir" class="salir-img" style="width:30px">
+        </a>
+    </div>
+
+    <h2 class="text-center">SOY PROFESOR Y PUEDO DAR ALTA INCIDENCIAS</h2>
+    
+
+    <form method="POST">
+        <input type="text" readonly value={{email}}>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Alta Incidencia">
+    </form>
+
+
+    {% if mensaje %}
+        <div class="alert alert-danger">{{ mensaje }}</div>
+    {% endif %}
+</div>
+{% endblock %}
