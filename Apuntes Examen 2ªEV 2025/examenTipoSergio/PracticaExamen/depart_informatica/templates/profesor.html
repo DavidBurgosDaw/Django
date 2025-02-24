@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h2>Estas en la vista de Profesor</h2>
+<p class="text-center">Email: {{ usuario.email }}</p>
+
+<h3>Lista de Laboratorios:</h3>
+<ul>
+    {% for lab in laboratorios %}
+        <li>
+            
+            {{ lab.nombre_lab }}
+            </a>
+        </li>
+    {% endfor %}
+
+    <a href="{% url 'profesor_incidencia' usuario.email %}">Añadir la incidencia</a>
+</ul>
+
+{% endblock %}

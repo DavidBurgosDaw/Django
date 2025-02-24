@@ -1,0 +1,59 @@
+-- Vaciar la tabla app_resolucion
+DELETE FROM app_resolucion;
+
+-- Vaciar la tabla app_incidencia
+DELETE FROM app_incidencia;
+
+-- Vaciar la tabla app_profesor
+DELETE FROM app_profesor;
+
+-- Vaciar la tabla app_laboratorio
+DELETE FROM app_laboratorio;
+
+-- Insertar más datos en la tabla app_laboratorio
+INSERT INTO app_laboratorio (nombre_lab, num_ordenadores, email_tecnico)
+VALUES 
+('Lab1', 20, 'tecnico1@example.com'),
+('Lab2', 15, 'tecnico2@example.com'),
+('Lab3', 25, 'tecnico3@example.com'),
+('Lab4', 10, 'tecnico4@example.com'),
+('Lab5', 30, 'tecnico5@example.com');
+
+-- Insertar más datos en la tabla app_profesor
+INSERT INTO app_profesor (nombre_completo, email, password, laboratorio_id)
+VALUES 
+('Juan Pérez', 'juan.perez@example.com', 'password123', 'Lab1'),
+('Ana Gómez', 'ana.gomez@example.com', 'password456', 'Lab2'),
+('Carlos Ruiz', 'carlos.ruiz@example.com', 'password789', 'Lab3'),
+('María López', 'maria.lopez@example.com', 'password101', 'Lab4'),
+('Pedro Sánchez', 'pedro.sanchez@example.com', 'password112', 'Lab5'),
+('Laura Martínez', 'laura.martinez@example.com', 'password131', NULL),
+('Sofía García', 'sofia.garcia@example.com', 'password415', NULL);
+
+-- Insertar más datos en la tabla app_incidencia
+INSERT INTO app_incidencia (numero, fecha, numero_ordenador, descripcion, profesor_id, resuelta)
+VALUES 
+(1, '2023-10-01 09:00:00', 'Lab1', 'PC01', 'No enciende el ordenador', 'juan.perez@example.com', FALSE),
+(2, '2023-10-01 10:15:00', 'Lab2', 'PC02', 'Problema con la red', 'ana.gomez@example.com', FALSE),
+(3, '2023-10-02 11:30:00', 'Lab3', 'PC03', 'Pantalla en blanco', 'carlos.ruiz@example.com', FALSE),
+(4, '2023-10-02 12:45:00', 'Lab4', 'PC04', 'Teclado no funciona', 'maria.lopez@example.com', FALSE),
+(5, '2023-10-03 14:00:00', 'Lab5', 'PC05', 'Ratón no responde', 'pedro.sanchez@example.com', FALSE),
+(6, '2023-10-03 15:15:00', 'Lab1', 'PC06', 'Sin conexión a internet', 'juan.perez@example.com', FALSE),
+(7, '2023-10-04 16:30:00', 'Lab2', 'PC07', 'Software no se inicia', 'ana.gomez@example.com', FALSE),
+(8, '2023-10-04 17:45:00', 'Lab3', 'PC08', 'Problema de sonido', 'carlos.ruiz@example.com', FALSE),
+(9, '2023-10-05 18:00:00', 'Lab4', 'PC09', 'Impresora no imprime', 'maria.lopez@example.com', FALSE),
+(10, '2023-10-05 19:15:00', 'Lab5', 'PC10', 'Disco duro lleno', 'pedro.sanchez@example.com', FALSE);
+
+-- Insertar más datos en la tabla app_resolucion
+INSERT INTO app_resolucion (incidencia_id, profesor_id, fecha_resolucion, descripcion)
+VALUES 
+(1, 'juan.perez@example.com', '2023-10-01 10:00:00', 'Se cambió la fuente de poder'),
+(2, 'ana.gomez@example.com', '2023-10-01 11:30:00', 'Se reinició el router'),
+(3, 'carlos.ruiz@example.com', '2023-10-02 13:00:00', 'Se reemplazó el cable de video'),
+(4, 'maria.lopez@example.com', '2023-10-02 14:30:00', 'Se conectó un nuevo teclado'),
+(5, 'pedro.sanchez@example.com', '2023-10-03 15:00:00', 'Se reemplazó el ratón'),
+(6, 'juan.perez@example.com', '2023-10-03 16:30:00', 'Se reinició el módem'),
+(7, 'ana.gomez@example.com', '2023-10-04 17:00:00', 'Se reinstaló el software'),
+(8, 'carlos.ruiz@example.com', '2023-10-04 18:30:00', 'Se ajustaron los controladores de audio'),
+(9, 'maria.lopez@example.com', '2023-10-05 19:00:00', 'Se cambió el cartucho de tinta'),
+(10, 'pedro.sanchez@example.com', '2023-10-05 20:30:00', 'Se liberó espacio en el disco duro');

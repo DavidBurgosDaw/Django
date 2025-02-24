@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- Contenedor del botón para posicionarlo en la esquina superior derecha -->
+<div style="position: absolute; top: 10px; right: 10px;">
+    <a href="{% url 'login' %}">
+        <img src="{% static 'img/boton.jpg' %}" alt="Botón" style="width: 50px; height: auto;">
+    </a>
+</div>
+
+<h1>{{ mensaje }}</h1>
+<br>
+<a href="{% url 'profesor_view' email %}">Volver</a>
+
+{% endblock %}

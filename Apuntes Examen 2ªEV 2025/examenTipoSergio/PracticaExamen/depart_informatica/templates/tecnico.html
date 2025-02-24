@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Incidencias del Técnico</h1>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped shadow-sm">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th scope="col">Número</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Email del Profesor</th>
+                    <th scope="col">Ordenador</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Resuelta</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {% for item in incidencias %}
+                <tr>
+                    <td>{{ item.numero }}</td>
+                    <td>{{ item.fecha|date:"d/m/Y H:i" }}</td>
+                    <td>{{ item.profesor.email }}</td>
+                    <td>{{ item.numero_ordenador }}</td>
+                    <td>{{ item.descripcion }}</td>
+                    <td>
+                        <span class="badge {% if item.resuelta %}bg-success{% else %}bg-danger{% endif %}">
+                            {% if item.resuelta %}SI
+                           
+                                <td> <a href="{% url 'detalles' item.numero %}">Detalles</a></td>
+                            </a>{% else %}NO
+                            
+                                <td> <a href="{% url 'resolver' item.profesor.email item.numero %}">Resolver</a></td>
+                            </a>{% endif %}
+                        </span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center text-muted">No hay incidencias registradas.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

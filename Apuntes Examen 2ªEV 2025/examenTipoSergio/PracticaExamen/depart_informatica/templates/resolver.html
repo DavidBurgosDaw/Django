@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Resolver Incidencia</h1>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <label for="email">Email del Técnico:</label><br>
+    <input type="email" id="email" name="email" value="{{ email }}" readonly><br><br>
+
+    <label for="numero_incidencia">Número de Incidencia:</label><br>
+    <input type="number" id="numero_incidencia" name="numero_incidencia" value="{{ incidencia.numero }}" readonly><br><br>
+
+    <label for="descripcion_resolucion">Descripción de la Resolución:</label><br>
+    <textarea id="descripcion_resolucion" name="descripcion_resolucion" rows="4" cols="50" required></textarea><br><br>
+
+    <button type="submit">Marcar como Resuelta</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<h1>Detalles de la Incidencia</h1>
+
+<p><strong>Número:</strong> {{ incidencia.numero }}</p>
+<p><strong>Fecha:</strong> {{ incidencia.fecha|date:"d/m/Y H:i" }}</p>
+<p><strong>Email del Profesor:</strong> {{ incidencia.profesor.email }}</p>
+<p><strong>Ordenador:</strong> {{ incidencia.numero_ordenador }}</p>
+<p><strong>Descripción:</strong> {{ incidencia.descripcion }}</p>
+<p><strong>Resuelta:</strong> {% if incidencia.resuelta %} ✅ Sí {% else %} ❌ No {% endif %}</p>
+
+{% endblock %}
