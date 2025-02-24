@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica11Ej1</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+
+    <!-- Encabezado (Header) -->
+    <header>
+        <h1>GESTIÓN DE CLIENTES</h1>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    
+
+
+    <!-- Pie de Página (Footer) -->
+    <footer>
+        <h4>COPYRIGHT © 2025 - Practica11Ej3</h4>
+    </footer>
+
+</body>
+</html>

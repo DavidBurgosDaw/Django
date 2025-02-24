@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Ciudad</th>
+        {% if perfil == "Administrador" %}
+        <th>Acciones</th>
+        {% endif %}
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for c in clientes  %}
+        <tr>
+          <td>{{ c.nombre}}</td>
+          <td>{{ c.email }}</td>
+          <td>{{ c.ciudad }}</td>
+          {% if perfil == "Administrador" %}
+          <td><button>Borrar</button></td>
+          {% endif %}
+        </tr>
+        {%empty%}
+        <tr>
+          <td colspan="3">Error, al mostrar los clientes</td>
+        </tr>
+        {% endfor %}
+    </tbody>    
+  </table>
+ 
+
+{% endblock %}
