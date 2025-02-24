@@ -1,0 +1,14 @@
+{% extends "becas/base.html" %}
+
+{% block content %}
+<div class="card p-4 shadow-lg">
+    <h2 class="text-center">Informacion beca:</h2>
+    <p>Dni: {{solicitud.dni}}</p>
+    <p>Provincia: {{solicitud.provincia}}</p>
+    <p>Renta: {{solicitud.renta}}</p>
+    <p>Edad: {{solicitud.edad}}</p>
+    <p>Puntuacion: {{solicitud.puntuacion}}</p>
+
+    
+</div>
+{% endblock %}

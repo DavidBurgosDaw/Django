@@ -1,0 +1,33 @@
+{% extends "becas/base.html" %}
+
+{% block content %}
+<div class="card p-4 shadow-lg">
+    <h2 class="text-center">LISTA SOLICITUDES</h2>
+    {% if mensaje %}
+        <div class="alert alert-danger">{{ mensaje }}</div>
+    {% endif %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>PUNTUACION</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for solicitud in solicitudes %}
+            <tr>
+                <td>{{ solicitud.dni }}</td>
+                <td>{{ solicitud.puntuacion }}</td>
+                <td> <a class="navbar-brand" href="{% url 'info_beca' solicitud.dni %}">Ver detalles</a></td>
+                
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7" class="text-center">No hay solicitudes</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

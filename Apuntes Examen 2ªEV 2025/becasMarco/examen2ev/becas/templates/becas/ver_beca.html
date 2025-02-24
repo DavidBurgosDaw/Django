@@ -1,0 +1,18 @@
+{% extends "becas/base.html" %}
+
+{% block content %}
+<div class="card p-4 shadow-lg">
+    <h2 class="text-center">Haz tu consulta de beca</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary w-100">Buscar</button>
+    </form>
+
+    {% if mensaje %}
+        <div class="alert alert-danger">{{ mensaje }}</div>
+        <a href="{% url 'home' %}">Volver pagina principal</a>
+    {% endif %}
+</div>
+{% endblock %}
