@@ -1,0 +1,8 @@
+<!-- gestion_becas/templates/detalle_beca.html -->
+<h1>Detalle de la beca</h1>
+<p>DNI: {{ beca.dni }}</p>
+<p>Provincia: {{ beca.provincia }}</p>
+<p>Renta: {{ beca.renta }}</p>
+<p>Edad: {{ beca.edad }}</p>
+<p>Puntuación: {{ beca.puntuacion }}</p>
+<a href="{% url 'gestion_becas:index' %}">Volver al inicio</a>
