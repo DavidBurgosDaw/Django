@@ -1,5 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+  {% csrf_token %}
+
+  {% if perfil == 'Administrador' %} <!--Solo meto el formulario si es profe-->
+  <h1>Añadir Usuario</h1>
+  <form method="POST">
+ 
+    {{ form }} <!--Formulario para añadir usuarios-->
+    <button type="submit" class="btn btn-primary w-100">Sign in</button>
+    {% if mensaje %}{{mensaje}}{% endif %}
+  </form>
+  {% endif %}
 
   <table border="1">
     <thead>
@@ -14,13 +25,15 @@
       </tr>
     </thead>
     <tbody>
-        {% for c in clientes  %}
+        <h1>Clientes</h1>
+        {% for c in clientes  %} <!--Muestro los clientes-->
         <tr>
           <td>{{ c.nombre}}</td>
           <td>{{ c.email }}</td>
           <td>{{ c.ciudad }}</td>
           {% if perfil == "Administrador" %}
-          <td><button  {% url "BorrarCliente" c.id %}>Borrar</button></td>
+          <td>  <a href="{% url 'BorrarCliente' c.id perfil %}"><button>Borrar</button></a> <!--Le paso el id para que borre y el perfil para que lo pase a la hora de mostrar los detalles clientes-->
+          </td>
           {% endif %}
         </tr>
         {%empty%}

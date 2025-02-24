@@ -6,6 +6,6 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
     usuario = forms.CharField( max_length=20, required=True)
-    password = forms.CharField(max_length=20, required=True)
     email = forms.EmailField(max_length=100,required=True)
+    telefono = forms.CharField(max_length=9,required=True)
     ciudad = forms.CharField(max_length=30)

@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.login, name="Login"),
     path("DetallesClientes/<str:perfil>",views.Muestra_Datos, name="DatosCliente"), #Le paso por string el tipo de usuario que es
-    path("BorrarCliente/<int:id>",views.borrar_cliente, name="BorrarCliente")
+    path('BorrarCliente/<int:id>/<str:perfil>', views.borrar_cliente, name='BorrarCliente')
 ]
