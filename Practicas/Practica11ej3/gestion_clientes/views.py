@@ -34,6 +34,10 @@ def buscar_usuario(usuario,password):
     except Usuario.DoesNotExist:
         return None
 
+def borrar_cliente(request,id):
+    cliente = Cliente.objects.get(id = id)
+    cliente.delete()
+    return redirect('DatosCliente')
 
 
 

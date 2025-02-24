@@ -20,7 +20,7 @@
           <td>{{ c.email }}</td>
           <td>{{ c.ciudad }}</td>
           {% if perfil == "Administrador" %}
-          <td><button>Borrar</button></td>
+          <td><button  {% url "BorrarCliente" c.id %}>Borrar</button></td>
           {% endif %}
         </tr>
         {%empty%}
