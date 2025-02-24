@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import LoginForm
-from .models import Usuario, Equipo
+from .models import Usuario, Equipo, Partido
+from django.db.models import Q
 # Create your views here.
 
 #Crea el formulario login y hace que lo demas funcione
@@ -37,3 +38,7 @@ def Equipos(request):
 def Mostrar_Equipo(request, id):
     equipo = Equipo.objects.get(id=id)
     return render(request,"detallesEquipo.html",{"equipo":equipo})
+
+def Mostrar_Partido(request, id):
+    partidos = Partido.objects.filter(Q(equipo_casa_id=id) | Q(equipo_visitante_id=id))
+    return render(request,"detallesPartido.html",{"partidos":partidos})
