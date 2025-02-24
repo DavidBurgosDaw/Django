@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: white;
+}
+header {
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 18px;
+}
+
+.imgfix {
+  width: 300px;
+}
+.exit {
+  width: 50px;
+  text-align: right;
+  float: right;
+}

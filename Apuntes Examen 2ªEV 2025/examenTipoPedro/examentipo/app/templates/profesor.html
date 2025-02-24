@@ -1,0 +1,16 @@
+{% extends "index.html" %} {% load static %} {% block content %}
+<img id="imgfix" src="{% static 'imagenes/fixPC.png' %}" alt="Logo" />
+<a href="{% url 'home' %}">
+  <img class="exit" src="{% static 'imagenes/exit.png' %}" alt="Logo" />
+</a>
+<h2 class="text-center">SOY PROFESOR Y PUEDO DAR ALTA INCIDENCIAS</h2>
+<h2>{{usuario.email}}</h2>
+{% for l in labs %}
+<p>
+  <li>{{ l.nombre_lab }}</li>
+</p>
+{% endfor %}
+<a href="{% url 'incidencia' email=usuario.email %}">Crear Incidencia</a>
+{% endblock %}
+
+<!--<a href="{% url 'incidencia' lab=l.nombre_lab %}">{{ l.nombre_lab }}</a> si quisiera que pasara con la url-->

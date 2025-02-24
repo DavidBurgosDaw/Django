@@ -1,0 +1,51 @@
+{% extends "index.html" %} {% block content %} {% load static %}
+<a href="{% url 'home' %}">
+  <img class="exit" src="{% static 'imagenes/exit.png' %}" alt="Logo" />
+</a>
+<h2 class="text-center">SOY {{usuario.email}} Y PUEDO DAR ALTA INCIDENCIAS</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Número de Incidencia</th>
+      <th>Fecha</th>
+      <th>Email del Profesor</th>
+      <th>Ordenador</th>
+      <th>Descripción</th>
+      <th>Resuelta</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in incidencia %}
+    <tr>
+      <td>{{ i.numero }}</td>
+      <td>{{ i.fecha }}</td>
+      <td>{{ i.profesor.email }}</td>
+      <td>{{ i.numero_ordenador }}</td>
+      <td>{{ i.descripcion }}</td>
+      <td>
+        {% if i.resuelta %}
+        <span class="badge badge-success">SI</span>
+        {% else %}
+        <span class="badge badge-danger">NO</span>
+        {% endif %}
+      </td>
+      <td>
+        {% if i.resuelta %}
+        <a class="btn btn-info" href="{% url 'verincidencia' i.numero %}"
+          >Detalles</a
+        >
+        {% else %}
+        <a
+          class="btn btn-warning"
+          href="{% url 'resolverincidencia' i.numero usuario.email %}"
+        >
+          Resolver
+        </a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %} href="{% url 'resolverincidencia' i.numero usuario.email %}"

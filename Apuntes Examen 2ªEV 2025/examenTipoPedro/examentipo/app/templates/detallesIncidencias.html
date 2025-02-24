@@ -1,0 +1,25 @@
+{% extends "index.html" %} {% block content %} {% load static %}
+<img class="imgfix" src="{% static 'imagenes/fixPC.png' %}" alt="Logo" />
+<a href="{% url 'home' %}">
+  <img class="exit" src="{% static 'imagenes/exit.png' %}" alt="Logo" />
+</a>
+<h5 class="card-title">Incidencia #{{ incidencia.numero }}</h5>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">
+    <strong>Fecha:</strong> {{ incidencia.fecha }}
+  </li>
+  <li class="list-group-item">
+    <strong>Laboratorio:</strong> {{ incidencia.laboratorio }}
+  </li>
+  <li class="list-group-item">
+    <strong>Número de Ordenador:</strong> {{ incidencia.numero_ordenador }}
+  </li>
+  <li class="list-group-item">
+    <strong>Descripción:</strong>
+    <p class="mt-2">{{ incidencia.descripcion }}</p>
+  </li>
+  <li class="list-group-item">
+    <strong>Profesor:</strong> {{ incidencia.profesor }}
+  </li>
+  {% endblock %}
+</ul>

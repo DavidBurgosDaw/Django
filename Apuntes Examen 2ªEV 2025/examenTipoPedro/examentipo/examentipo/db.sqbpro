@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:\Users\Pdp\Downloads\EjemploBBDD\examentipo\db.sqlite3" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2872"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="app_incidencia" custom_title="0" dock_id="3" table="4,14:mainapp_incidencia"/><table title="app_incidencia" custom_title="0" dock_id="1" table="4,14:mainapp_incidencia"/><table title="app_profesor" custom_title="0" dock_id="2" table="4,12:mainapp_profesor"/><dock_state state="000000ff00000000fd00000001000000020000020e00000215fc0100000001fc000000000000020e0000012500fffffffa000000010100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000012500fffffffb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011e00fffffffb000000160064006f0063006b00420072006f00770073006500330100000000ffffffff0000012500ffffff0000020e0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="app_incidencia" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="52"/><column index="2" value="39"/><column index="3" value="118"/><column index="4" value="72"/><column index="5" value="55"/><column index="6" value="90"/><column index="7" value="75"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="app_laboratorio" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="76"/><column index="2" value="112"/><column index="3" value="87"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="app_profesor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="112"/><column index="2" value="39"/><column index="3" value="62"/><column index="4" value="90"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="app_resolucion" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="35"/><column index="2" value="159"/><column index="3" value="300"/><column index="4" value="83"/><column index="5" value="207"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="auth_group" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="35"/><column index="2" value="40"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- Vaciar la tabla app_resolucion
+DELETE FROM app_resolucion;
+
+-- Vaciar la tabla app_incidencia
+DELETE FROM app_incidencia;
+
+-- Vaciar la tabla app_profesor
+DELETE FROM app_profesor;
+
+-- Vaciar la tabla app_laboratorio
+DELETE FROM app_laboratorio;
+
+-- Insertar más datos en la tabla app_laboratorio
+INSERT INTO app_laboratorio (nombre_lab, num_ordenadores, email_tecnico)
+VALUES 
+('Lab1', 20, 'tecnico1@example.com'),
+('Lab2', 15, 'tecnico2@example.com'),
+('Lab3', 25, 'tecnico3@example.com'),
+('Lab4', 10, 'tecnico4@example.com'),
+('Lab5', 30, 'tecnico5@example.com');
+
+-- Insertar más datos en la tabla app_profesor
+INSERT INTO app_profesor (nombre_completo, email, password, laboratorio_id)
+VALUES 
+('Juan Pérez', 'juan.perez@example.com', 'password123', 'Lab1'),
+('Ana Gómez', 'ana.gomez@example.com', 'password456', 'Lab2'),
+('Carlos Ruiz', 'carlos.ruiz@example.com', 'password789', 'Lab3'),
+('María López', 'maria.lopez@example.com', 'password101', 'Lab4'),
+('Pedro Sánchez', 'pedro.sanchez@example.com', 'password112', 'Lab5'),
+('Laura Martínez', 'laura.martinez@example.com', 'password131', NULL),
+('Sofía García', 'sofia.garcia@example.com', 'password415', NULL);
+
+-- Insertar más datos en la tabla app_incidencia
+INSERT INTO app_incidencia (numero, fecha, laboratorio_id, numero_ordenador, descripcion, profesor_id, resuelta)
+VALUES 
+(1, '2023-10-01 09:00:00', 'Lab1', 'PC01', 'No enciende el ordenador', 'juan.perez@example.com', FALSE),
+(2, '2023-10-01 10:15:00', 'Lab2', 'PC02', 'Problema con la red', 'ana.gomez@example.com', FALSE),
+(3, '2023-10-02 11:30:00', 'Lab3', 'PC03', 'Pantalla en blanco', 'carlos.ruiz@example.com', FALSE),
+(4, '2023-10-02 12:45:00', 'Lab4', 'PC04', 'Teclado no funciona', 'maria.lopez@example.com', FALSE),
+(5, '2023-10-03 14:00:00', 'Lab5', 'PC05', 'Ratón no responde', 'pedro.sanchez@example.com', FALSE),
+(6, '2023-10-03 15:15:00', 'Lab1', 'PC06', 'Sin conexión a internet', 'juan.perez@example.com', FALSE),
+(7, '2023-10-04 16:30:00', 'Lab2', 'PC07', 'Software no se inicia', 'ana.gomez@example.com', FALSE),
+(8, '2023-10-04 17:45:00', 'Lab3', 'PC08', 'Problema de sonido', 'carlos.ruiz@example.com', FALSE),
+(9, '2023-10-05 18:00:00', 'Lab4', 'PC09', 'Impresora no imprime', 'maria.lopez@example.com', FALSE),
+(10, '2023-10-05 19:15:00', 'Lab5', 'PC10', 'Disco duro lleno', 'pedro.sanchez@example.com', FALSE);
+
+-- Insertar más datos en la tabla app_resolucion
+INSERT INTO app_resolucion (incidencia_id, profesor_id, fecha_resolucion, descripcion)
+VALUES 
+(1, 'juan.perez@example.com', '2023-10-01 10:00:00', 'Se cambió la fuente de poder'),
+(2, 'ana.gomez@example.com', '2023-10-01 11:30:00', 'Se reinició el router'),
+(3, 'carlos.ruiz@example.com', '2023-10-02 13:00:00', 'Se reemplazó el cable de video'),
+(4, 'maria.lopez@example.com', '2023-10-02 14:30:00', 'Se conectó un nuevo teclado'),
+(5, 'pedro.sanchez@example.com', '2023-10-03 15:00:00', 'Se reemplazó el ratón'),
+(6, 'juan.perez@example.com', '2023-10-03 16:30:00', 'Se reinició el módem'),
+(7, 'ana.gomez@example.com', '2023-10-04 17:00:00', 'Se reinstaló el software'),
+(8, 'carlos.ruiz@example.com', '2023-10-04 18:30:00', 'Se ajustaron los controladores de audio'),
+(9, 'maria.lopez@example.com', '2023-10-05 19:00:00', 'Se cambió el cartucho de tinta'),
+(10, 'pedro.sanchez@example.com', '2023-10-05 20:30:00', 'Se liberó espacio en el disco duro');</sql><current_tab id="0"/></tab_sql></sqlb_project>

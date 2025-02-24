@@ -1,0 +1,22 @@
+{% extends "index.html" %} {% block content %} {% load static %}
+<img id="imgfix" src="{% static 'imagenes/fixPC.png' %}" alt="Logo" />
+
+<h2 class="text-center">Formulario</h2>
+<form action="" method="POST" novalidate>
+  {% csrf_token %} {% for field in form %}
+  <div class="form-group">
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {% if field.widget_type == "checkbox" or field.widget_type == "radio" %}
+    <div class="form-check">{{ field }}</div>
+    {% else %} {{ field }} {% endif %} {% if field.errors %}
+    <div class="alert alert-danger mt-2">{{ field.errors.as_text }}</div>
+    {% endif %}
+  </div>
+  {% endfor %} {% if mensaje %}
+  <div class="alert alert-danger">{{ mensaje }}</div>
+  {% endif %}
+  <div class="text-center">
+    <input type="submit" class="btn btn-success" value="Aceptar" />
+  </div>
+</form>
+{% endblock %}

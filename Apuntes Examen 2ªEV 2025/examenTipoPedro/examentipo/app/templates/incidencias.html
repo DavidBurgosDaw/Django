@@ -1,0 +1,37 @@
+{% extends "index.html" %} {% block content %} {% load static %}
+<img class="imgfix" src="{% static 'imagenes/fixPC.png' %}" alt="Logo" />
+<a href="{% url 'home' %}">
+  <img class="exit" src="{% static 'imagenes/exit.png' %}" alt="Logo" />
+</a>
+<p></p>
+<br />
+<h2 class="text-center">Formulario</h2>
+<form action="" method="POST" novalidate>
+  {% if email %}
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input class="form-control" value="{{ email }}" readonly />
+  </div>
+  {% endif %} {% if numero %}
+  <div class="form-group">
+    <label for="email">numero</label>
+    <input class="form-control" value="{{ numero }}" readonly />
+  </div>
+  {% endif %} {% csrf_token %} {% for field in form %}
+  <div class="form-group">
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {% if field.widget_type == "checkbox" or field.widget_type == "radio" %}
+    <div class="form-check">{{ field }}</div>
+    {% else %} {{ field }} {% endif %} {% if field.errors %}
+    <div class="alert alert-danger mt-2">{{ field.errors.as_text }}</div>
+    {% endif %}
+  </div>
+  {% endfor %} {% if mensaje %}
+  <div class="alert alert-danger">{{ mensaje }}</div>
+  {% endif %}
+  <div class="text-center">
+    <input type="submit" class="btn btn-success" value="Aceptar" />
+  </div>
+</form>
+
+{% endblock %}

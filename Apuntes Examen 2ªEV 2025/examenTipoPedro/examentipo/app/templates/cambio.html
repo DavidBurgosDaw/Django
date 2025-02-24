@@ -1,0 +1,7 @@
+{% extends "index.html" %} {% block content %} {% load static %}
+<img class="imgfix" src="{% static 'imagenes/fixPC.png' %}" alt="Logo" />
+<a href="{% url 'home' %}">
+  <img class="exit" src="{% static 'imagenes/exit.png' %}" alt="Logo" />
+</a>
+<h1>Cambio Realizado</h1>
+{% endblock %}
