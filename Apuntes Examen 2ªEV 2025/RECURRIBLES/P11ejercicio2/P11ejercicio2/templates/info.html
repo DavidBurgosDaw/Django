@@ -1,0 +1,19 @@
+{%extends 'base.html' %} {%block titulo %} Datos de los Equipos{%endblock%} {%block contenido %}
+<div class="jumbotron">
+    <table class="table">
+        <th>Identificador</th>
+        <th>Nombre</th>
+        <th>Acciones</th>
+        {% for equipo in equipos%}
+        <tr>
+            <form action="" method="POST">
+
+            <td>{{equipo.identificador}}</td>
+            <td>{{equipo.nombre}}</td>
+            <a><td><a class="nav-link" href="{% url 'Ver'  identificador=equipo.identificador %}">Editar</a></td>
+            </form>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{% endblock %}

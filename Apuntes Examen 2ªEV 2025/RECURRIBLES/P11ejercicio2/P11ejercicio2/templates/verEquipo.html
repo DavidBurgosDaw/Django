@@ -1,0 +1,20 @@
+{%extends 'base.html' %} {%block titulo %} Datos del Equipo{%endblock%} {%block contenido %}
+<div class="jumbotron">
+    <table class="table">
+        <th>Identificador</th>
+        <th>Nombre</th>
+        <th>Fecha Fundaciom</th>
+        <th>Acciones</th>
+    
+        <tr>
+            <td>{{equipo.identificador}}</td>
+            <td>{{equipo.nombre}}</td>
+            <td>{{equipo.fecha_fundacion}}</td>
+            <td>{{equipo.victorias}}</td>
+            <td><a class="nav-link" href="{% url 'VerPartido'  identificador=equipo.identificador %}">Detalle</a></td>
+            </form>
+        </tr>
+      
+    </table>
+</div>
+{% endblock %}

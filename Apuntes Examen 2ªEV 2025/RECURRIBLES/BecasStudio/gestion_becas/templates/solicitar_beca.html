@@ -1,0 +1,12 @@
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="dni" placeholder="DNI" required />
+  <input type="text" name="provincia" placeholder="Provincia" required />
+  <input type="number" name="renta" step="0.01" placeholder="Renta" required />
+  <input type="number" name="edad" placeholder="Edad" required />
+  <button type="submit">Enviar</button>
+  {% if error %}
+  <p style="color: red">{{ error }}</p>
+  {% endif %}
+</form>
+<a href="{% url 'gestion_becas:index' %}">Volver</a>

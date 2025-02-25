@@ -1,0 +1,19 @@
+{%extends 'base.html' %} {%block titulo %} Datos de los partidos{%endblock%} {%block contenido %}
+<div class="jumbotron">
+    <table class="table">
+        <th>Identificador</th>
+        <th>Nombre</th>
+        <th>Fecha Fundaciom</th>
+        <th>Acciones</th>
+    {% for partidos in l_partidos%}
+        <tr>
+            <td>{{partidos.identificador}}</td>
+            <td>{{partidos.equipo_visitante}}</td>
+            <td>{{partidos.goles_local}}</td>
+            <td>{{partidos.goles_visitante}}</td>
+            </form>
+        </tr>
+      {%endfor%}
+    </table>
+</div>
+{% endblock %}

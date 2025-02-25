@@ -1,0 +1,10 @@
+<h1>Todas las solicitudes</h1>
+<ul>
+  {% for beca in becas %}
+  <li>
+    {{ beca.dni }} - Puntuación: {{ beca.puntuacion }}
+    <a href="{% url 'gestion_becas:detalle' beca.dni %}">Ver detalles</a>
+  </li>
+  {% endfor %}
+  <a href="{% url 'gestion_becas:index' %}">Salir</a>
+</ul>

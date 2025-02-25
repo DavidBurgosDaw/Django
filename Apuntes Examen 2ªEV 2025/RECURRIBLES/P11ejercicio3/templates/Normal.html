@@ -1,0 +1,18 @@
+{%extends 'base.html' %} {%block titulo %} Datos del Usuario{%endblock%} {%block contenido %}
+<div class="jumbotron">
+    <table class="table">
+        <h2>Informacion del Un Usuario Normal</h2>
+        <th>Nombre</th>
+        <th>EMAIL</th>
+        <th>CIUDAD</th>
+    
+        <tr>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.ciudad}}</td>
+            </form>
+        </tr>
+      
+    </table>
+</div>
+{% endblock %}

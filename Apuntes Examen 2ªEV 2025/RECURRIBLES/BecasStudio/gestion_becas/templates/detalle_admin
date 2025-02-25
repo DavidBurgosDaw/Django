@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle Administrador</title>
+</head>
+<body>
+    <h1>Detalle completo (vista admin)</h1>
+    <p>DNI: {{ beca.dni }}</p>
+    <p>Provincia: {{ beca.provincia }}</p>
+    <p>Renta: {{ beca.renta }}</p>
+    <p>Edad: {{ beca.edad }}</p>
+    <p>Puntuación: {{ beca.puntuacion }}</p>
+    <a href="{% url 'gestion_becas:dashboard' %}">Volver al listado</a>
+</body>
+</html>

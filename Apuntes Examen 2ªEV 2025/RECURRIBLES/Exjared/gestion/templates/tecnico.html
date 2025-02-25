@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="container py-4">
+  <!-- Logout Button -->
+  <div class="d-flex justify-content-end pb-4">
+    <a href="{% url 'login' %}" class="btn btn-outline-danger">Cerrar sesión</a>
+  </div>
+  <h1>Listado de incidencias</h1>
+  <table class="table-borderless">
+    <thead>
+      <th>Numero</th>
+      <th>Fecha</th>
+      <th>Email</th>
+      <th>Laboratorio</th>
+      <th>Ordenador</th>
+      <th>Descripcion</th>
+      <th>Resuelta</th>
+      <th></th>
+    </thead>
+    <tbody>
+      {% for i in incidencias %}
+      <tr>
+        <td>{{i.numero}}</td>
+        <td>{{i.fecha}}</td>
+        <td>{{i.profesor.email}}</td>
+        <td>{{i.laboratorio.nombre_lab}}</td>
+        <td>{{i.numero_ordenador}}</td>
+        <td>{{i.descripcion}}</td>
+        <td>
+          {% if i.resuelta %}
+          <span class="badge badge-success">SI</span>
+          {% else %}
+          <span class="badge badge-danger">NO</span>
+          {% endif %}
+        </td>
+        <td>
+          {% if i.resuelta %}
+          <a href="{% url 'detalles' i.numero %}" class="btn btn-warning">
+            Detalles
+          </a>
+          {% else %}
+          <a href="{% url 'resolver' i.numero %}" class="btn btn-warning">
+            Resolver
+          </a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

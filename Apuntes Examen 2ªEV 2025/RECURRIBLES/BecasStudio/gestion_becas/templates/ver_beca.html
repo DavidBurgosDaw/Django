@@ -1,0 +1,16 @@
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="dni" placeholder="DNI" required />
+  <button type="submit">Buscar</button>
+  {% if error %}
+  <p style="color: red">{{ error }}</p>
+  {% endif %}
+</form>
+{% if beca %}
+<p>DNI: {{ beca.dni }}</p>
+<p>Provincia: {{ beca.provincia }}</p>
+<p>Renta: {{ beca.renta }}</p>
+<p>Edad: {{ beca.edad }}</p>
+<p>Puntuación: {{ beca.puntuacion }}</p>
+{% endif %}
+<a href="{% url 'gestion_becas:index' %}">Volver</a>

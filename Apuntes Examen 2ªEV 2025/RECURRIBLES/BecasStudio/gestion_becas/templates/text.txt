@@ -1,0 +1,110 @@
+from django.shortcuts import render, redirect
+from .models import BecaFP, Usuario
+
+def index(request):
+    return render(request, 'index.html') 
+
+def solicitar_beca(request):
+    return render(request, 'solicitar_beca.html')
+def ver_beca(request):
+    return render(request, 'ver_beca.html') 
+
+def login_view(request): 
+    if request.method == 'POST':
+        username = request.POST.get('usuario')
+        password = request.POST.get('password')
+        try:
+            usuario = Usuario.objects.get(username=username, password=password)
+            request.session['usuario_id'] = usuario.id
+            return redirect('gestion_becas:dashboard')
+        except Usuario.DoesNotExist:
+            return render(request, 'login.html', {'error': 'Credenciales inválidas'})
+    return render(request, 'login.html')
+from django.shortcuts import render, redirect
+from .models import BecaFP, Usuario
+
+def index(request):
+    return render(request, 'index.html')
+
+def solicitar_beca(request):
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        if BecaFP.objects.filter(dni=dni).exists():
+            return render(request, 'solicitar_beca.html', {'error': 'DNI ya registrado'})
+        
+       
+        puntuacion = 0
+        provincia = request.POST.get('provincia')
+        renta = float(request.POST.get('renta'))
+        edad = int(request.POST.get('edad'))
+        
+        if provincia.lower() == 'madrid':
+            puntuacion += 1
+        if renta < 6000:
+            puntuacion += 2
+        elif 6000 <= renta <= 10000:
+            puntuacion += 1
+        if edad > 21:
+            puntuacion += 2
+        
+        # Guardar
+        BecaFP.objects.create(
+            dni=dni,
+            provincia=provincia,
+            renta=renta,
+            edad=edad,
+            puntuacion=puntuacion
+        )
+        return redirect('index')
+    return render(request, 'solicitar_beca.html')
+
+def ver_beca(request):
+    if request.method == 'POST':
+        dni = request.POST.get('dni')
+        try:
+            beca = BecaFP.objects.get(dni=dni)
+            return render(request, 'detalle_beca.html', {'beca': beca})
+        except BecaFP.DoesNotExist:
+            return render(request, 'ver_beca.html', {'error': 'DNI no encontrado'})
+    return render(request, 'ver_beca.html')
+
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('usuario')
+        password = request.POST.get('password')
+        try:
+            usuario = Usuario.objects.get(username=username, password=password)
+            request.session['usuario_id'] = usuario.id
+            return redirect('dashboard')
+        except Usuario.DoesNotExist:
+            return render(request, 'login.html', {'error': 'Credenciales inválidas'})
+    return render(request, 'login.html')
+
+def dashboard(request):
+    if 'usuario_id' not in request.session:
+        return redirect('login')
+    
+    becas = BecaFP.objects.all()
+    return render(request, 'dashboard.html', {'becas': becas})
+
+
+
+def detalle_beca(request, dni):
+    if 'usuario_id' not in request.session:
+        return redirect('gestion_becas:login')
+    
+    beca = BecaFP.objects.get(dni=dni)
+    return render(request, 'detalle_admin.html', {'beca': beca}) 
+
+
+
+
+
+
+
+
+    path('solicitar/', views.solicitar_beca, name='solicitar'),
+    path('ver/', views.ver_beca, name='ver'),
+    path('login/', views.login_view, name='login'),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('detalle/<str:dni>/', views.detalle_beca, name='detalle'),

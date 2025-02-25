@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<body>
+    <p><strong>Nombre:</strong> {{ nombre }}</p>
+    <p><strong>Email:</strong> {{ email }}</p>
+    <p><strong>Sexo:</strong> {{ sexo }}</p>
+    <p><strong>Temas:</strong> {{ temas }}</p>
+    <p><strong>Aficiones:</strong> 
+        {% for aficion in aficiones %}
+            {{ aficion }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <p><strong>Autorización:</strong> 
+        {% if autorizacion %} Doy {% else %} No doy {% endif %} mi consentimiento
+    </p>
+</body>
+</html>

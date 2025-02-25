@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Becas FP - Ministerio</title>
+    <style>
+      :root {
+        --primary-color: #4a90e2;
+        --secondary-color: #4a4a4a;
+        --background-color: #f5f7fa;
+        --text-color: #333;
+        --subtext-color: #666;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+      }
+
+      .beca-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .top-nav {
+        text-align: right;
+        padding: 10px 0;
+      }
+
+      .nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav-links li {
+        display: inline;
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-size: 14px;
+      }
+
+      .main-header {
+        text-align: left;
+        padding: 40px 0;
+      }
+
+      .main-header h1 {
+        font-size: 36px;
+        margin: 0;
+        font-weight: normal;
+      }
+
+      .subtitle {
+        color: var(--subtext-color);
+        margin-top: 10px;
+      }
+
+      .logo-section {
+        text-align: center;
+        margin: 40px 0;
+      }
+
+      .main-logo {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .banner {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 10px 30px;
+        display: inline-block;
+        margin-top: 20px;
+        border-radius: 5px;
+      }
+
+      .banner-text {
+        font-size: 18px;
+        letter-spacing: 1px;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links li {
+          display: block;
+          margin: 10px 0;
+        }
+
+        .main-header h1 {
+          font-size: 28px;
+        }
+
+        .banner-text {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="beca-container">
+      <!-- Barra de navegación superior -->
+      <nav class="top-nav">
+        <h1>Becas FP - Ministerio</h1>
+        <ul class="nav-links">
+          <li>
+            <a href="{% url 'gestion_becas:solicitar' %}">Solicitar Beca</a>
+          </li>
+          <li><a href="{% url 'gestion_becas:ver' %}">Consultar Mi Beca</a></li>
+          <li>
+            <a href="{% url 'gestion_becas:login' %}">Iniciar Sesión (Admin)</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Encabezado principal -->
+      <header class="main-header">
+        <h1>SOLICITA AQUÍ TU BECA</h1>
+        <p class="subtitle">No te quedes sin estudiar!!!</p>
+      </header>
+
+      <!-- Logo y título principal -->
+      <div class="logo-section">
+        <img
+          src="{% static 'img/becas-estudio-logo.png' %}"
+          alt="Logo de Becas Estudio"
+          class="main-logo"
+        />
+        <div class="banner">
+          <span class="banner-text">AYUDAS PARA ESTUDIANTES</span>
+        </div>
+      </div>
+
+      <!-- Contenido Principal -->
+      <main>{% block content %}{% endblock %}</main>
+    </div>
+  </body>
+</html>

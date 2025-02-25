@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<div class="container d-flex justify-content-center align-items-center p-5">
+  <div>
+    <img src="{% static 'imagenes/render3d.png' %}" class="img-fluid" />
+  </div>
+  <div class="card shadow p-4" style="width: 100vw">
+    <h3 class="text-center mb-4">Login</h3>
+    {% if mensaje %}
+    <div class="alert alert-danger">{{ mensaje }}</div>
+    {% endif %}
+    <form action="" method="POST">
+      {% csrf_token %} {% for field in form %}
+      <div class="mb-3">
+        <label class="form-label" for="{{field.name}}"> {{field.label}} </label>
+        {{field}}
+      </div>
+      {% endfor %}
+      <center>
+        <input type="submit" class="btn btn-primary" value="Iniciar sesión" />
+      </center>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
